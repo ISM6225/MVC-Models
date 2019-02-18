@@ -1,0 +1,49 @@
+﻿@*
+    The @model Razor epression below is used to create a strongly typed
+    view. A strongly typed view is intended to render a specific model type
+
+    Below, in the form: define a label and input element for each property
+    of the GuestResponse model class. Each element is associated with the
+    model property using the asp-for attribute, which is another tag
+    helper attribute. The tag helper attributes configure the elements
+    to tie them to the model object. 
+    REFERENCE: Adam Freeman, "Pro ASP.NET Core MVC 2", Seventh Edition, Apress, 2017, p. 31
+
+*@
+
+@model MVC_Models.Models.GuestResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <form asp-action="RsvpForm" method="post">
+        <p>
+            <label asp-for="Name">Your Name:</label>
+            <input asp-for="Name"/>
+        </p>
+        <p>
+            <label asp-for="Email">Your Email:</label>
+            <input asp-for="Email"/>
+        </p>
+        <p>
+            <label asp-for="Phone">Your Phone:</label>
+            <input asp-for="Phone"/>
+        </p>
+        <p>
+            <label>Will you attend?</label>
+            <select asp-for="WillAttend">
+                <option value="">Choose an option ...</option>
+                <option value="true">Yes, I'll be there</option>
+                <option value="false">No, I can't come</option>
+            </select>
+        </p>
+        <button type="submit">Submit RSVP</button>
+    </form>
+</body>
+</html>
